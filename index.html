@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>올림포스 영어독해 고2 단어 시험</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF1F4;--surface:#FFFFFF;--ink:#18202B;--muted:#687384;--line:#D9DEE5;--soft:#F6F8FA;--ok:#0F8A5F;--okbg:#E5F5EE;--no:#C8372D;--nobg:#FBEAE8;--accent:#1F3A5F;
+--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161C;--surface:#1B2129;--ink:#E8ECF1;--muted:#9AA4B2;--line:#2C343F;--soft:#212833;--ok:#3DC48E;--okbg:#16352A;--no:#F07468;--nobg:#3A1E1C;}}
+:root[data-theme="dark"]{--bg:#12161C;--surface:#1B2129;--ink:#E8ECF1;--muted:#9AA4B2;--line:#2C343F;--soft:#212833;--ok:#3DC48E;--okbg:#16352A;--no:#F07468;--nobg:#3A1E1C;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 60px}
+.screen{display:none}.screen.on{display:block}
+/* home */
+.mast{padding:18px 0 26px;border-bottom:2px solid var(--ink);margin-bottom:26px}
+.mast .book{font-size:14px;color:var(--muted);margin:0 0 6px}
+.mast h1{font-family:var(--serif);font-weight:700;font-size:clamp(32px,6vw,46px);line-height:1.1;margin:0;letter-spacing:-.01em}
+.mast p.lead{margin:12px 0 0;color:var(--muted);max-width:54ch}
+.resetrow{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:18px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.tab{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 16px;font-weight:600}
+.tab[aria-selected="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.ranktable{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface)}
+.ranktable th{text-align:left;font-size:13px;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1.5px solid var(--line)}
+.ranktable td{padding:10px;border-bottom:1px solid var(--line);word-break:keep-all;vertical-align:top}
+.ranktable td.rk{font-family:var(--serif);font-weight:700;font-size:20px;width:2.4em;color:var(--accent)}
+.ranktable td.nm{font-weight:700}
+.ranktable td.sc{font-weight:700;white-space:nowrap}
+.ranktable td.sm{color:var(--muted);font-size:13px}
+.ranktable tr.me td{background:var(--okbg)}
+.rankcard{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:6px 6px 2px;overflow-x:auto}
+.status{color:var(--muted);padding:18px 10px;margin:0}
+.note{font-size:13px;color:var(--muted);margin:12px 2px 0}
+.reg{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px;padding:16px;background:var(--soft);border-radius:10px}
+.reg label{font-weight:700}
+.reg input{flex:1;min-width:140px;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface)}
+.regmsg{margin:10px 0 0;font-weight:600;min-height:1em}
+.regmsg.err{color:var(--no)}.regmsg.ok{color:var(--ok)}
+.namebox label{font-weight:600}
+.namebox input{flex:1;min-width:180px;max-width:280px;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface)}
+.units{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:540px){.units{grid-template-columns:1fr}}
+.unit{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:16px;width:100%;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-left:8px solid var(--c);border-radius:6px 12px 12px 6px;padding:16px 18px}
+.unit:hover{border-color:var(--c)}
+.unit .num{font-family:var(--serif);font-weight:700;font-size:52px;line-height:1;color:var(--c);min-width:1.4em;text-align:center}
+.unit .t{font-weight:700;font-size:18px}
+.unit .s{color:var(--muted);font-size:14px}
+.best{display:inline-block;margin-top:4px;font-size:13px;color:var(--c);font-weight:600}
+/* setup */
+.back{background:none;border:0;padding:6px 0;color:var(--muted);font-size:15px;margin-bottom:14px}
+.back:hover{color:var(--ink)}
+.sethead{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--accent);padding-bottom:14px;margin-bottom:22px}
+.sethead .big{font-family:var(--serif);font-size:64px;font-weight:700;line-height:.9;color:var(--accent)}
+.sethead h2{margin:0;font-size:24px}
+.sethead p{margin:2px 0 0;color:var(--muted);font-size:14px}
+fieldset{border:0;padding:0;margin:0 0 22px}
+legend{font-weight:700;margin-bottom:10px;padding:0}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{padding:10px 16px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface);cursor:pointer;font-weight:500}
+.seg label small{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.seg.modes label{border-radius:10px;flex:1;min-width:150px}
+.seg input:checked+label{border-color:var(--accent);background:var(--accent);color:#fff}
+.seg input:checked+label small{color:rgba(255,255,255,.82)}
+.seg input:focus-visible+label{outline:3px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:14px 26px;font-weight:700;font-size:17px}
+.primary:hover{filter:brightness(1.08)}
+.ghost{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:13px 20px;font-weight:600}
+.ghost:hover{border-color:var(--ink)}
+details.list{margin-top:26px;background:var(--surface);border:1.5px solid var(--line);border-radius:10px}
+details.list summary{padding:14px 16px;cursor:pointer;font-weight:600}
+.wtable{width:100%;border-collapse:collapse;font-size:15px}
+.wtable td{padding:7px 16px;border-top:1px solid var(--line);vertical-align:top}
+.wtable td.n{color:var(--muted);width:3em;font-variant-numeric:tabular-nums}
+.wtable td.e{font-family:var(--serif);font-weight:600;font-size:16px}
+.wtable tr.ph td{background:var(--soft);font-weight:700;font-size:13px;color:var(--muted)}
+/* quiz */
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;font-size:14px;color:var(--muted)}
+.qtop b{color:var(--ink)}
+.quit{background:none;border:0;color:var(--muted);padding:4px 0;font-size:14px}
+.bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin-bottom:22px}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:30px 22px 26px}
+.prompt-k{font-size:14px;color:var(--muted);margin:0 0 6px;text-align:center}
+.word{text-align:center;margin:0 0 26px;font-size:clamp(30px,7vw,48px);line-height:1.15;word-break:keep-all;overflow-wrap:anywhere}
+.word.en{font-family:var(--serif);font-weight:700}
+.word.ko{font-weight:700;font-size:clamp(26px,6vw,38px)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);font-size:17px}
+.opt .k{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);font-size:13px;font-weight:700;color:var(--muted)}
+.opt.en span.v{font-family:var(--serif);font-weight:600;font-size:18px}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt.right{border-color:var(--ok);background:var(--okbg)}
+.opt.right .k{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--no);background:var(--nobg)}
+.opt.wrong .k{background:var(--no);border-color:var(--no);color:#fff}
+.opt[disabled]{cursor:default}
+.typebox{display:flex;gap:10px}
+.typebox input{flex:1;min-width:0;padding:14px 16px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);font-family:var(--serif);font-size:20px}
+.typebox input.right{border-color:var(--ok);background:var(--okbg)}
+.typebox input.wrong{border-color:var(--no);background:var(--nobg)}
+.fb{min-height:28px;margin-top:16px;text-align:center}
+.fb .r{color:var(--ok);font-weight:700}
+.fb .w{color:var(--no);font-weight:700}
+.fb .ans{font-family:var(--serif);font-weight:700}
+.nextrow{display:flex;justify-content:flex-end;margin-top:6px}
+.hint{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
+/* result */
+.sheet{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:26px 22px}
+.rhead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--accent);padding-bottom:14px}
+.rhead h2{margin:0;font-size:20px}
+.rhead p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.score{display:flex;align-items:baseline;gap:14px;margin:22px 0 6px;flex-wrap:wrap}
+.score .s{font-family:var(--serif);font-weight:700;font-size:76px;line-height:1;color:var(--accent)}
+.score .of{font-size:22px;color:var(--muted)}
+.score .pct{font-size:18px;font-weight:700;margin-left:auto}
+.msg{margin:0 0 20px;color:var(--muted)}
+.rtitle{font-weight:700;margin:22px 0 8px}
+.rtable{width:100%;border-collapse:collapse;font-size:15px}
+.rtable th{text-align:left;font-size:13px;color:var(--muted);font-weight:600;padding:6px 10px;border-bottom:1.5px solid var(--line)}
+.rtable td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.rtable td.e{font-family:var(--serif);font-weight:600}
+.rtable td{word-break:keep-all}.rtable td:first-child{white-space:nowrap;color:var(--muted)}
+.rtable td.mine{color:var(--no)}
+.tablewrap{overflow-x:auto}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.perfect{padding:16px;background:var(--okbg);color:var(--ok);border-radius:10px;font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="home" class="screen on" aria-labelledby="h1">
+  <header class="mast">
+    <p class="book">올림포스 영어독해 · 고2</p>
+    <h1 id="h1">단어 시험</h1>
+    <p class="lead">시험 볼 단원을 고르세요. 단원마다 Part 1, Part 2를 따로 보거나 한 번에 볼 수 있어요.</p>
+  </header>
+  <ul class="units" id="units"></ul>
+  <div class="resetrow"><button class="primary" id="rankBtn">순위 보기</button><button class="ghost" id="resetBtn">기록 리셋</button></div>
+</section>
+
+<section id="setup" class="screen" aria-labelledby="setTitle">
+  <button class="back" data-go="home">← 단원 목록</button>
+  <div class="sethead"><span class="big" id="setNum"></span><div><h2 id="setTitle"></h2><p id="setSub"></p></div></div>
+  <fieldset><legend>범위</legend><div class="seg" id="partSeg"></div></fieldset>
+  <fieldset><legend>문제 유형</legend>
+    <div class="seg modes">
+      <input type="radio" name="mode" id="m1" value="en2ko" checked><label for="m1">뜻 고르기<small>영어 보고 한글 뜻 4지선다</small></label>
+      <input type="radio" name="mode" id="m2" value="ko2en"><label for="m2">단어 고르기<small>한글 뜻 보고 영어 4지선다</small></label>
+      <input type="radio" name="mode" id="m3" value="type"><label for="m3">철자 쓰기<small>한글 뜻 보고 영어 직접 입력</small></label>
+    </div>
+  </fieldset>
+  <fieldset><legend>문항 수</legend><div class="seg" id="countSeg"></div></fieldset>
+  <button class="primary" id="startBtn">시험 시작</button>
+  <details class="list"><summary>시험 전에 단어 목록 보기</summary><table class="wtable" id="wlist"></table></details>
+</section>
+
+<section id="quiz" class="screen" aria-live="polite">
+  <div class="qtop"><span id="qInfo"></span><span><b id="qNo"></b> <button class="quit" id="quitBtn">그만하기</button></span></div>
+  <div class="bar"><i id="barFill"></i></div>
+  <div class="card">
+    <p class="prompt-k" id="qKind"></p>
+    <h2 class="word" id="qWord"></h2>
+    <div id="qBody"></div>
+    <div class="fb" id="fb"></div>
+    <div class="nextrow"><button class="primary" id="nextBtn" hidden>다음 문제</button></div>
+  </div>
+  <p class="hint" id="hint"></p>
+</section>
+
+<section id="rank" class="screen" aria-labelledby="rankTitle">
+  <button class="back" data-go="home">← 단원 목록</button>
+  <header class="mast"><p class="book">올림포스 영어독해 · 고2</p><h1 id="rankTitle">단원별 순위</h1></header>
+  <div class="tabs" id="rankTabs" role="tablist"></div>
+  <div class="rankcard" id="rankBoard"></div>
+  <p class="note" id="rankNote"></p>
+</section>
+
+<section id="result" class="screen">
+  <div class="sheet" id="sheet">
+    <div class="rhead"><div><h2 id="rTitle"></h2><p id="rSub"></p></div><div><p id="rWho" style="text-align:right"></p></div></div>
+    <div class="score"><span class="s" id="rScore"></span><span class="of" id="rOf"></span><span class="pct" id="rPct"></span></div>
+    <p class="msg" id="rMsg"></p>
+    <div class="reg" id="regBox"><label for="rName">이름</label><input id="rName" maxlength="12" autocomplete="off" placeholder="이름을 적고 순위에 올리세요"><button class="primary" id="regBtn">순위에 올리기</button></div>
+    <p class="regmsg" id="regMsg"></p>
+    <div id="rRank"></div>
+    <div id="rWrong"></div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="retryWrong">틀린 단어만 다시 보기</button>
+    <button class="ghost" id="retryAll">같은 범위 다시 보기</button>
+    <button class="ghost" data-go="home">단원 목록</button>
+  </div>
+</section>
+
+</div>
+<script>
+// ▼ 순위 저장 주소: 구글 Apps Script 웹 앱 주소를 따옴표 안에 붙여 넣으세요. 비워 두면 이 기기에만 저장돼요.
+const RANKING_URL = "https://script.google.com/macros/s/AKfycbzaPpRzvpuiw6pAmf7qtJTX1nwtwimWqL8wu52LebH6PJPtUuV-WXkjG11LvQrri4EH/exec";
+const UNITS = [
+{ n:5, title:"글의 요지", color:"#0E9F6E", parts:[
+`potential|잠재적인
+similar to ~|~과 유사한
+refer to ~|~을 언급하다
+obtain|얻다
+effectively|효과적으로
+draw|끌어들이다
+establishment|가게, 기관, 시설
+financial|재정적인
+organism|생물
+valuable|귀중한
+commitment|약속
+predictable|예측할 수 있는
+thereby|그렇게 함으로써
+coordination|조정
+construction|건설
+take a measure|조치를 취하다
+institution|제도
+facilitate|용이하게 하다
+joint|공동의
+transport|수송하다, 운반하다
+afterwards|나중에
+credible|신뢰할 만한
+notably|특히
+sustain|유지하다
+in question|해당하는
+collaboration|협력
+determine|측정하다, 밝히다
+mass|질량
+calculate|계산하다
+equation|방정식
+unmediated|중재되지 않은
+property|값, 특성, 속성
+magnitude|크기, 규모
+complicated|복잡한
+roughly|대략적으로
+instance|사례
+quantity|수치, 다량
+measurement|측정
+estimation|추정, 평가치
+firm|기업
+profitable|수익이 있는
+rescue|구제하다
+intervene|개입하다
+restructure|구조를 조정하다
+in the long term|장기적으로
+credit crisis|금융 위기
+overrate|과대평가하다
+so as to do|~할 만큼
+implement|도구
+fundamental|근본적인
+exercise|발휘하다
+potentially|잠재적으로
+entirely|완전히
+impact|영향
+absorb|흡수하다
+invisible|눈에 보이지 않는
+substitute for ~|~을 대신하다
+implication|영향
+overlook|간과하다
+historian|역사학자
+accurate|정확한
+play a role in ~|~에 역할을 하다
+contribute|기여하다
+commerce|상업
+transaction|거래
+wholesaler|도매업자
+efficient|효율적인
+significance|중요성
+facilitate|촉진하다
+interaction|상호 작용
+retailer|소매업자
+allocate|분배하다, 할당하다`,
+`remarkable|주목할 만한
+unwind|긴장을 풀다
+outcome|결과
+inevitable|피할 수 없는
+undercut|약화시키다
+extent|정도
+fantasize|상상[공상]하다
+objective|목표
+obstacle|장애물
+temporary|일시적인
+advent|출현
+prediction|전망, 예측
+executive|(조직의) 임원
+Artificial Intelligence|인공지능
+replace|대신하다
+mimic|모방하다
+puzzle|당혹하게 하다
+take over|점령하다
+relevance|적합성, 타당성
+more often than not|대개, 자주
+embrace|포용하다
+ambitious|야심에 찬
+victim|희생자
+integrate|흡수하다, 통합하다
+resistant|저항하는
+retirement|은퇴
+excel|탁월하다
+ultimately|결국, 궁극적으로
+respond|반응하다
+trigger|유발하다
+constructively|건설적으로
+equilibrium|(마음의) 평정
+reflect|성찰하다
+steer|조종하다
+well-meaning|선의에서 하는
+cautious|주의 깊은, 신중한
+swear|확언하다
+beat oneself up|자책하다
+strive for|~을 위해 노력하다
+be associated with|~과 관련되다
+unremarkable|평범한
+modified|수정된
+immediate|즉각적인`]},
+{ n:6, title:"글의 주제", color:"#5B5BD6", parts:[
+`conceivable|생각할 수 있는
+steep|가파른
+radiation|방사선
+constant|끊임없는, 일정한
+installation|설치
+exploration|탐사, 탐험
+atmosphere|대기(권)
+maintenance|유지, 보수
+endure|견디다
+impractical|비실용적인
+opt for|~을 선택하다
+interest rate|이율
+generously|충분히, 후하게
+hold out|기다리다, 버티다
+introduction|도입
+phenomenon|현상
+sum|총액, 합계
+compensate|보상하다, 상쇄하다
+figure|판단하다, 생각하다
+inconsistent|일관성 없는
+immediacy|즉시성
+neuroscience|뇌 과학, 신경과학
+strive for|~을 추구하다
+homeostasis|항상성
+highs and lows|변동, 기복
+be reliant on|~에 의존하다
+be capable of|~을 할 수 있다
+opposite|반대의
+scale|저울
+correspondingly|상응하여, 그에 따라
+miserable|비참한
+neutral|중립적인
+component|구성 요소
+internal|내부의
+interplay|상호 작용
+hinder|방해하다
+ignorance|무지
+induce|유발하다
+recognize|인식하다
+characteristic|특유한, 특징적인
+underlying|근원적인, 근본적인
+independently of|~과 무관하게
+aspire|열망하다
+carry out|수행하다
+perspective|관점
+view|견해
+ethnicity|인종, 민족성
+angle|각도, 관점
+cognitive|인지적인
+negotiate|협상하다
+compassion|동정심, 연민
+foster|기르다, 촉진하다
+fulfill|충족시키다
+emphasize|강조하다
+consultant|컨설턴트`,
+`in spite of ~|~에도 불구하고
+majority|대다수
+accomplish|달성하다
+readily|기꺼이
+reluctant|꺼려하는
+disguise|변장하다
+anthropologist|인류학자
+stand to reason|당연하다
+decline|감소
+relieve|경감하다
+corporation|기업
+exclusive|한정된, 독점적인
+head off|~을 막다
+conflict|갈등
+shift|변화
+emerge from|~에서 나오다
+stem from|~에서 비롯되다
+innovation|혁신
+disciplinary|학문의, 교과의
+practitioner|실무자, 종사자
+employ|사용하다, 쓰다
+abstract|추상하다; 추상적인
+universal|보편적인
+consequence|영향, 결과
+intake|섭취
+associated with|~과 관련된
+cognitively|인지적으로
+component|요소
+consumption|섭취
+isolate|분리하다
+inverse|역의, 반대의
+excessive|과도한
+metabolic|신진대사의
+preparatory|준비의
+strategy|전략
+firsthand|직접, 바로
+arousal|정서적 자극
+unconscious|무의식적인
+upcoming|곧 있을, 다가오는
+compensate for|~을 보상하다
+intimidate|겁먹게 하다
+efficient|효율적인
+cram|밀어 넣다
+contrary|정반대
+transfer|이동시키다
+accumulate|축적하다`]},
+{ n:7, title:"글의 제목", color:"#D6334F", parts:[
+`continuum|연속성
+mindlessly|생각 없이
+adopt|받아들이다
+distinction|구분, 구별
+marginal|근소한, 미미한
+impaired|장애가 있는
+appropriate|적절한
+deem|간주하다, 부르다
+cognitively|인지적으로
+myth|근거 없는 믿음
+establish|확립하다
+womb|자궁
+approximately|거의
+determinant|결정 요인
+reliably|확실히
+assumption|가정
+ultrasound|초음파
+evaluate|평가하다
+sway|영향을 받다
+crucial|결정적인
+manufacturer|생산자
+adequacy|적절성
+keep pace with|~을 따라가다
+spill over|~로 번지다
+efficacy|효과, 효능
+masterfully|노련하게
+itch|욕구
+be confined to|~에 국한되다
+fascinating|대단히 흥미로운
+utter|절대적인, 완전한
+temptation|매력, 유혹
+manipulative|조작의
+in favor of|~을 선호하여
+compelling|강렬한, 강력한
+consist of|~로 이루어지다
+competent|유능한
+sufficient|충분한
+be accountable for|책임이 있다
+democratic|민주적인
+optimal|최적의
+internalize|내면화하다
+maturity|성숙
+in a series of|일련의
+be likely to do|~할 가능성이 있다
+remote|멀리 있는
+prevalent|일반적인, 만연한
+accessible|연락 가능한
+obligation|의무
+pressure|압박
+deal with|~에 대처하다
+ins and outs|세부적인 것들
+induce|유발하다
+relate|공감하다
+instantly|즉시
+interaction|상호 작용
+aggressive|공격적인`,
+`in response to|~에 대한 반응으로
+vulnerable|취약한
+fool into|속여서 ~하게 하다
+inferior to|~보다 열등한
+unsophisticated|순수한, 순진한
+violate|위반하다
+deception|속임수
+companion|동료
+synthetic|가짜의, 인조의
+uncanny|불쾌한, 기분 나쁜
+recipient|수혜자
+dignity|존엄성
+purchase|구매
+be committed to|~에 헌신하다
+conscience|양심
+mindful|주의하는, 유념하는
+deserve|~을 받을 만하다
+practice|관행
+contribute|기부하다
+genuinely|진심으로
+sustainable|지속 가능한
+embrace|받아들이다
+formalize|공식화하다
+unintelligible|이해하기 어려운
+so to speak|말하자면, 소위
+attempt|시도
+estimate|추정하다, 추측하다
+materialize|나타나다, 구체화되다
+craze|열풍, 대유행
+reinterpretation|재해석
+recreational|여가의
+aspirational|열망의
+obviously|분명히, 확실히
+by no means|결코 ~이 아닌
+inclusive|포용적인
+be associated with|~과 연관되다
+status|지위
+well-off|부유한
+manifest|분명한
+inequality|불평등
+mythology|신화
+attributable|~에 기인하는
+availability|이용 가능성
+sewage|하수
+attainable|달성할 수 있는
+controversy|논란
+preventive|예방의
+hygiene|위생
+bioengineered|생물 공학적인
+sanitation|위생
+consumption|소비
+inanimate|무생물의
+abandoned|버려진
+deliberate|의도적인
+register|(견해를) 표명하다`]},
+{ n:8, title:"도표의 이해", color:"#1A7FC4", parts:[
+`respondent|응답자
+conduct|하다, 수행하다
+methods of payment|결제 수단
+survey|설문 조사
+exceed|초과하다
+primary|주요한
+recreational|여가의
+account for|~을 차지하다
+ranking order|순위
+purchase|구매
+commute|통근하다
+rank|(순위를) 차지하다
+share|점유율
+respectively|각각
+selected|선정된
+estimated|추정된, 예측된
+surpass|넘다, 뛰어넘다
+anticipate|예상하다
+project|예상하다
+proportion|비율
+care|돌봄
+reach|달하다
+unpaid|무급의
+notably|특히
+similar|비슷한
+protein|단백질
+average|평균
+consumption|섭취
+poultry|가금류
+least|가장 적은
+view|견해
+advertising|광고
+result|결과
+targeted|표적이 된
+intrusive|침해적인
+gap|차이`,
+`share|비율, 점유율
+survey|설문 조사
+access|접속하다
+by gender|성별로
+respondent|응답자
+via|~을 통하여
+public|공립의
+select|선정하다
+reverse|반대, 역
+secondary school|중등학교
+daily|매일
+proportion|비율
+respond|응답하다
+account for|~을 차지하다
+state|말하다
+second-dose|2차 접종
+Mediterranean|지중해
+vaccination|백신 접종
+exceed|초과하다
+decade|10년
+distribution|분포, 배분
+sector|부문
+marine|해상의
+aviation|항공, 비행
+petrochemical|석유 화학
+demand|수요
+generation|발생
+waterway|수로
+industry|산업
+commute|통근하다; 통근
+commuter|통근자
+except for|~을 제외하고
+whereas|반면에
+residential|주거의
+mode|방식, 수단`]},
+{ n:9, title:"내용일치 / 불일치", color:"#0B8A7A", parts:[
+`founding father|창시자
+artistically|예술적으로
+sculptor|조각가
+commission|임무
+reputation|명성
+architect|건축가
+remains|유적
+stunning|멋진
+display|보이다
+physics|물리학
+classify|분류하다
+attribute|속성, 특성
+conventional|전통적인, 관습적인
+remarkable|훌륭한
+marked|뚜렷한
+mineralogy|광물학
+conflict|갈등
+lecturer|강사
+adopt|채택하다
+stance|입장, 자세
+expose|폭로하다
+voice|대변자
+Parliament|의회
+moderate|온건한
+progressive|진보적인
+abuse|남용
+advocate|지지하다
+drafting|작성, 기안
+instructor|강사
+distinguished|출중한, 눈에 띄는
+expedition|탐험
+population|개체
+examine|검토하다
+demonstrate|설명하다
+nature|본질
+set up|~을 세우다
+source|원천
+doctoral degree|박사 학위
+award|수상하다`,
+`attend|(~에) 다니다
+racial|인종의
+financial|금융의
+charitable organization|자선 단체
+found|설립하다
+merge with|~과 합병하다
+prominence|명성
+public|공립의; 대중
+discrimination|차별
+promote|장려하다, 촉진하다
+thrive|번창하다, 번성하다
+improvement|개선
+astronomy|천문학
+director|관리자
+calculator|계산원
+manuscript|원고
+assistant|조수
+passionately|열정적으로
+blacksmith|대장장이
+priesthood|성직자, 사제
+accompany|동반하다
+lecture|강의하다
+botany|식물학
+assemble|모으다
+consider|여기다
+energetically|활기차게
+clear|비우다
+convert A into B|A를 B로 바꾸다
+illustrative|화보 같은
+pose|자세를 취하다
+compose|구성하다
+so-called|소위
+convention|관습
+composition|구도
+appreciate|높이 평가하다
+expression|표현
+portrait|인물, 초상
+devote|전념하다
+convince|설득하다
+theatrical|연극의
+criticize|비판하다
+critic|비평가
+experiment|실험하다
+focus|초점
+spiritual|정신의
+medium|표현 수단
+notable|유명한
+arranged marriage|중매결혼
+doctorate|박사 학위
+co-author|공동 집필하다
+deforestation|삼림 벌채
+preservation|보존
+wed|결혼하다
+literacy|문해력
+contribute|기여하다
+variety|품종
+famine|기근
+advocate|옹호자
+hydroelectric|수력 발전의
+physics|물리학
+apparently|짐작하건대
+scholarship|장학금
+forecasting|예보
+boundary|경계
+chair|직책
+geophysical|지구 물리학의
+practical|실용적인
+meteorology|기상학`]},
+{ n:10, title:"실용문의 이해", color:"#8A3FD1", parts:[
+`annual|연례의, 해마다의
+except for|~을 제외하고
+plogging|달리면서 쓰레기 줍기
+conserve|보존하다
+comfortable|편안한
+upcoming|곧 있을, 다가오는
+film|촬영하다
+scene|장면
+chat|이야기를 나누다
+hallway|복도
+dine|식사하다
+payment|보수
+applicant|지원자
+previous|이전의
+priority|우대, 우선권
+hands-on|직접 해 보는, 실습의
+entry fee|참가비
+sustainable|지속 가능한
+trend|경향
+material|재료
+barefoot|맨발로
+confirmation|확정
+souvenir|기념품
+gathering point|집결지
+designated|지정된
+fallen|떨어진
+based on|~에 근거한
+casual|편안한, 가벼운
+gathering|모임
+set up|~을 설치하다
+be supplied with|~이 제공되다
+explore|탐험하다
+participation|참가
+fee|요금
+include|포함하다
+provide|제공하다
+diverse|다양한
+treat|음식
+local|지역의
+performance|공연
+experienced|숙련된
+entry|입장`,
+`present|표현하다
+pour|따르다
+ingredient|재료
+available|사용할 수 있는
+steam|데우다
+registration|등록
+dairy alternative|대체 유제품
+qualified|자격을 가진
+fundamental|기본적인
+policy|정책
+equipment|장비
+instruction|강습
+indoor|실내의
+cancellation|취소
+athletic|운동의
+participate in|~에 참여하다
+complete|완수하다
+competition|시합
+in total|총
+submit|제출하다
+promote|장려하다
+civic|시민의
+compassion|온정, 연민
+qualification|자격
+snore|코를 골다
+adjust|조정하다
+cough|기침하다
+analyze|분석하다
+show off|~을 뽐내다
+exhibition|전시회
+illuminate|비추다
+resident|거주자
+randomly|무작위로
+assign|배정하다`]}
+];
+
+
+function parseUnits(U){return U.map(u=>({n:u.n,title:u.title,color:u.color,parts:u.parts.map((p,pi)=>p.split("\n").map((l,i)=>{const [en,ko]=l.split("|");return {en:en.trim(),ko:ko.trim(),part:pi+1,no:i+1,unit:u.n};}))}));}
+function koTokens(ko){return ko.replace(/\([^)]*\)/g,"").replace(/\[[^\]]*\]/g,"").split(/[,;]/).map(s=>s.replace(/[~\s]/g,"")).filter(Boolean);}
+function normEn(s){return s.toLowerCase().replace(/~/g," ").replace(/[.,!?'"’]/g,"").replace(/-/g," ").replace(/\s+/g," ").trim();}
+function clash(a,b){if(normEn(a.en)===normEn(b.en))return true;const ta=koTokens(a.ko),tb=koTokens(b.ko);return ta.some(t=>tb.includes(t));}
+function acceptedAnswers(en){const base=normEn(en);const set=new Set([base]);
+ set.add(base.replace(/ do$/,"").replace(/ a into b$/," into").trim());
+ if(base.endsWith(" organization"))set.add(base.replace(/ organization$/," org"));
+ set.add(base.replace(/\bsomeone\b|\boneself\b/g,"").replace(/\s+/g," ").trim());
+ return [...set].filter(Boolean);}
+function isCorrectTyped(input,en){const a=normEn(input);if(!a)return false;return acceptedAnswers(en).includes(a);}
+function shuffle(arr,rnd=Math.random){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function makeOptions(item,unitPool,allPool,rnd=Math.random){
+ const picked=[];const seenKey=new Set();
+ const tryPool=(pool)=>{for(const c of shuffle(pool,rnd)){if(picked.length>=3)break;if(c===item||clash(c,item))continue;if(picked.some(p=>clash(p,c)))continue;const k=normEn(c.en)+"|"+c.ko;if(seenKey.has(k))continue;seenKey.add(k);picked.push(c);}};
+ tryPool(unitPool);if(picked.length<3)tryPool(allPool);
+ return shuffle([item,...picked],rnd);}
+
+
+(function(){
+const UNITS_P=parseUnits(UNITS);
+const ALL=UNITS_P.flatMap(u=>u.parts.flat());
+const $=id=>document.getElementById(id);
+const st={unit:null,part:"all",mode:"en2ko",count:"20",items:[],i:0,answered:false,results:[],lastPool:[]};
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const MODE_NAME={en2ko:"뜻 고르기",ko2en:"단어 고르기",type:"철자 쓰기"};
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("on",s.id===id));window.scrollTo(0,0);}
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.go==="home")renderHome();show(b.dataset.go);}));
+
+function twoStep(btn,label,armed,action){let on=false,t;btn.addEventListener("click",()=>{if(!on){on=true;btn.textContent=armed;clearTimeout(t);t=setTimeout(()=>{on=false;btn.textContent=label;},3000);return;}on=false;clearTimeout(t);btn.textContent=label;action();});}
+twoStep($("resetBtn"),"기록 리셋","한 번 더 누르면 리셋",()=>{UNITS_P.forEach(u=>{try{localStorage.removeItem("vt-best-"+u.n)}catch(e){}});try{localStorage.removeItem("vt-rank")}catch(e){}renderHome();});
+const PART_NAME=p=>p==="all"?"Part 1+2":"Part "+p;
+const MODE_SHORT={en2ko:"뜻 고르기",ko2en:"단어 고르기",type:"철자 쓰기"};
+const Rank={
+  online:!!RANKING_URL,
+  async list(unit){
+    if(this.online){const r=await fetch(RANKING_URL+"?unit="+unit,{cache:"no-store"});const j=await r.json();if(!j.ok)throw new Error("bad");return j.rows;}
+    let a=[];try{a=JSON.parse(localStorage.getItem("vt-rank")||"[]")}catch(e){}return a.filter(r=>r.unit===unit);
+  },
+  async add(e){
+    if(this.online){const r=await fetch(RANKING_URL,{method:"POST",body:JSON.stringify(e)});const j=await r.json();if(!j.ok)throw new Error("bad");return;}
+    let a=[];try{a=JSON.parse(localStorage.getItem("vt-rank")||"[]")}catch(_){}a.push(e);try{localStorage.setItem("vt-rank",JSON.stringify(a))}catch(_){throw new Error("store");}
+  }
+};
+function better(a,b){return b.pct-a.pct||b.total-a.total||a.sec-b.sec;}
+function topRows(rows){const by={};rows.forEach(r=>{const k=String(r.name).trim();if(!by[k]||better(r,by[k])<0)by[k]=r;});return Object.values(by).sort(better);}
+function fmtSec(s){s=Math.round(+s||0);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0");}
+function rankTable(rows,me,limit){
+  if(!rows.length)return '<p class="status">아직 순위에 오른 사람이 없어요. 시험을 보고 첫 번째로 이름을 올려 보세요.</p>';
+  const list=topRows(rows).slice(0,limit||50);
+  return `<table class="ranktable"><thead><tr><th>순위</th><th>이름</th><th>점수</th><th>기록</th></tr></thead><tbody>${list.map((r,i)=>`<tr class="${me&&r.name===me?"me":""}"><td class="rk">${i+1}</td><td class="nm">${esc(r.name)}</td><td class="sc">${r.pct}점</td><td class="sm">${r.right}/${r.total}, ${fmtSec(r.sec)}<br>${esc(PART_NAME(r.part))} ${esc(MODE_SHORT[r.mode]||r.mode)}</td></tr>`).join("")}</tbody></table>`;
+}
+let rankUnit=5;
+async function openRank(n){
+  rankUnit=n;const u=UNITS_P.find(x=>x.n===n);
+  document.documentElement.style.setProperty("--accent",u.color);
+  $("rankTabs").innerHTML=UNITS_P.map(x=>`<button class="tab" role="tab" style="--c:${x.color}" aria-selected="${x.n===n}" data-u="${x.n}">Unit ${x.n}</button>`).join("");
+  $("rankTabs").querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>openRank(+b.dataset.u)));
+  $("rankBoard").innerHTML='<p class="status">순위를 불러오는 중이에요.</p>';
+  $("rankNote").textContent=Rank.online?"같은 이름은 가장 높은 점수 하나만 보여요. 점수가 같으면 문항 수가 많은 사람, 그다음 빨리 푼 사람이 위로 가요.":"지금은 순위가 이 기기에만 저장돼요.";
+  show("rank");
+  try{const rows=await Rank.list(n);if(rankUnit===n)$("rankBoard").innerHTML=rankTable(rows);}
+  catch(e){$("rankBoard").innerHTML='<p class="status">순위를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요.</p>';}
+}
+$("rankBtn").addEventListener("click",()=>openRank(rankUnit));
+$("rName").value=store.get("vt-rname")||"";
+$("regBtn").addEventListener("click",async()=>{
+  const name=$("rName").value.trim().slice(0,12);
+  if(!name){$("regMsg").className="regmsg err";$("regMsg").textContent="이름을 적어 주세요.";$("rName").focus();return;}
+  store.set("vt-rname",name);
+  const e=st.lastEntry;if(!e)return;e.name=name;
+  $("regBtn").disabled=true;$("regMsg").className="regmsg";$("regMsg").textContent="올리는 중이에요.";
+  try{await Rank.add(e);$("regBox").hidden=true;$("regMsg").className="regmsg ok";$("regMsg").textContent=`${name} 이름으로 순위에 올렸어요.`;
+    try{const rows=await Rank.list(e.unit);$("rRank").innerHTML=`<p class="rtitle">Unit ${e.unit} 순위</p>`+rankTable(rows,name,10);}catch(_){}
+  }catch(err){$("regBtn").disabled=false;$("regMsg").className="regmsg err";$("regMsg").textContent="순위에 올리지 못했어요. 인터넷 연결을 확인하고 다시 눌러 주세요.";}
+});
+
+function renderHome(){
+  document.documentElement.style.setProperty("--accent","#1F3A5F");
+  $("units").innerHTML=UNITS_P.map(u=>{
+    const total=u.parts[0].length+u.parts[1].length;
+    const best=store.get("vt-best-"+u.n);
+    return `<li><button class="unit" style="--c:${u.color}" data-u="${u.n}"><span class="num">${u.n}</span><span><span class="t">Unit ${u.n} ${esc(u.title)}</span><br><span class="s">Part 1 ${u.parts[0].length}개, Part 2 ${u.parts[1].length}개, 모두 ${total}개</span>${best?`<br><span class="best">최고 점수 ${esc(best)}</span>`:""}</span></button></li>`;}).join("");
+  $("units").querySelectorAll(".unit").forEach(b=>b.addEventListener("click",()=>openSetup(+b.dataset.u)));
+}
+function openSetup(n){
+  const u=UNITS_P.find(x=>x.n===n);st.unit=u;
+  document.documentElement.style.setProperty("--accent",u.color);
+  $("setNum").textContent=u.n;$("setTitle").textContent=`Unit ${u.n} ${u.title}`;
+  $("setSub").textContent=`단어 ${u.parts[0].length+u.parts[1].length}개`;
+  const parts=[["all",`전체 (${u.parts[0].length+u.parts[1].length})`],["1",`Part 1 (${u.parts[0].length})`],["2",`Part 2 (${u.parts[1].length})`]];
+  $("partSeg").innerHTML=parts.map(([v,l],i)=>`<input type="radio" name="part" id="p${v}" value="${v}" ${i===0?"checked":""}><label for="p${v}">${l}</label>`).join("");
+  st.part="all";
+  $("partSeg").querySelectorAll("input").forEach(r=>r.addEventListener("change",()=>{st.part=r.value;renderCounts();}));
+  renderCounts();
+  let rows="";u.parts.forEach((p,pi)=>{rows+=`<tr class="ph"><td colspan="3">Part ${pi+1} (${p.length}개)</td></tr>`+p.map(w=>`<tr><td class="n">${String(w.no).padStart(2,"0")}</td><td class="e">${esc(w.en)}</td><td>${esc(w.ko)}</td></tr>`).join("");});
+  $("wlist").innerHTML=rows;$("wlist").closest("details").open=false;
+  show("setup");
+}
+function poolFor(){const u=st.unit;return st.part==="all"?u.parts.flat():u.parts[+st.part-1];}
+function renderCounts(){
+  const n=poolFor().length;const opts=[["20","20문제"],["30","30문제"],["all",`전부 (${n}문제)`]].filter(([v])=>v==="all"||+v<n);
+  if(!opts.some(o=>o[0]===st.count))st.count="all";
+  $("countSeg").innerHTML=opts.map(([v,l])=>`<input type="radio" name="cnt" id="c${v}" value="${v}" ${v===st.count?"checked":""}><label for="c${v}">${l}</label>`).join("");
+  $("countSeg").querySelectorAll("input").forEach(r=>r.addEventListener("change",()=>st.count=r.value));
+}
+document.querySelectorAll('input[name="mode"]').forEach(r=>r.addEventListener("change",()=>st.mode=r.value));
+$("startBtn").addEventListener("click",()=>{const pool=poolFor();st.lastPool=pool;let items=shuffle(pool);if(st.count!=="all")items=items.slice(0,+st.count);startQuiz(items);});
+
+function startQuiz(items,isRetry){st.items=items;st.i=0;st.results=[];st.isRetry=!!isRetry;st.t0=Date.now();show("quiz");renderQ();}
+function renderQ(){
+  const it=st.items[st.i],u=st.unit,m=st.mode;st.answered=false;
+  $("qInfo").textContent=`Unit ${u.n} ${MODE_NAME[m]}`;
+  $("qNo").textContent=`${st.i+1} / ${st.items.length}`;
+  $("barFill").style.width=(st.i/st.items.length*100)+"%";
+  $("fb").innerHTML="";$("nextBtn").hidden=true;
+  const w=$("qWord");
+  if(m==="en2ko"){$("qKind").textContent="이 단어의 뜻은?";w.className="word en";w.textContent=it.en;}
+  else{$("qKind").textContent=m==="type"?"이 뜻의 영어 단어를 쓰세요":"이 뜻의 영어 단어는?";w.className="word ko";w.textContent=it.ko;}
+  if(m==="type"){
+    $("qBody").innerHTML=`<div class="typebox"><input id="tIn" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="영어 단어 입력" placeholder="영어로 입력"><button class="primary" id="tBtn">확인</button></div>`;
+    const inp=$("tIn");inp.focus();
+    $("tBtn").addEventListener("click",checkTyped);
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.isComposing){e.preventDefault();e.stopPropagation();if(!st.answered)checkTyped();else next();}});
+    $("hint").textContent="답을 쓰고 Enter를 누르면 채점돼요. ~ 표시는 안 써도 돼요.";
+  }else{
+    const opts=makeOptions(it,u.parts.flat(),ALL);
+    $("qBody").innerHTML=`<div class="opts">${opts.map((o,k)=>`<button class="opt ${m==="ko2en"?"en":""}" data-k="${k}"><span class="k">${k+1}</span><span class="v">${esc(m==="en2ko"?o.ko:o.en)}</span></button>`).join("")}</div>`;
+    $("qBody").querySelectorAll(".opt").forEach((b,k)=>b.addEventListener("click",()=>choose(k,opts)));
+    $("qBody")._opts=opts;
+    $("hint").textContent="키보드 숫자 1~4로도 고를 수 있어요.";
+  }
+}
+function choose(k,opts){
+  if(st.answered)return;st.answered=true;
+  const it=st.items[st.i],picked=opts[k],ok=picked===it;
+  const btns=$("qBody").querySelectorAll(".opt");
+  btns.forEach((b,j)=>{b.disabled=true;if(opts[j]===it)b.classList.add("right");});
+  if(!ok)btns[k].classList.add("wrong");
+  const mine=st.mode==="en2ko"?picked.ko:picked.en;
+  record(it,ok,mine);
+  $("fb").innerHTML=ok?`<span class="r">정답!</span>`:`<span class="w">틀렸어요.</span> 정답: <span class="ans">${esc(st.mode==="en2ko"?it.ko:it.en)}</span>`;
+  showNext();
+}
+function checkTyped(){
+  if(st.answered)return;const inp=$("tIn");const val=inp.value.trim();
+  if(!val){inp.focus();$("fb").innerHTML=`<span class="w">답을 입력한 뒤 확인을 누르세요.</span>`;return;}
+  st.answered=true;const it=st.items[st.i];const ok=isCorrectTyped(val,it.en);
+  inp.readOnly=true;inp.classList.add(ok?"right":"wrong");$("tBtn").disabled=true;
+  record(it,ok,val);
+  $("fb").innerHTML=ok?`<span class="r">정답!</span> <span class="ans">${esc(it.en)}</span>`:`<span class="w">틀렸어요.</span> 정답: <span class="ans">${esc(it.en)}</span>`;
+  showNext();
+}
+function record(it,ok,mine){st.results.push({it,ok,mine});}
+function showNext(){const b=$("nextBtn");b.hidden=false;b.textContent=st.i===st.items.length-1?"결과 보기":"다음 문제";if(st.mode!=="type")b.focus();}
+function next(){if(!st.answered)return;if(st.i<st.items.length-1){st.i++;renderQ();}else finish();}
+$("nextBtn").addEventListener("click",next);
+document.addEventListener("keydown",e=>{
+  if(!$("quiz").classList.contains("on"))return;
+  if(st.mode!=="type"&&!st.answered&&/^[1-4]$/.test(e.key)){const opts=$("qBody")._opts;if(opts)choose(+e.key-1,opts);}
+  else if(e.key==="Enter"&&st.answered&&document.activeElement!==$("nextBtn")&&st.mode!=="type"){e.preventDefault();next();}
+});
+twoStep($("quitBtn"),"그만하기","한 번 더 누르면 종료",()=>{if(st.results.length)finish();else show("setup");});
+
+function finish(){
+  $("barFill").style.width="100%";
+  const u=st.unit,total=st.results.length,right=st.results.filter(r=>r.ok).length,pct=Math.round(right/total*100);
+  const partName=st.part==="all"?"Part 1 + 2":`Part ${st.part}`;
+  $("rTitle").textContent=`Unit ${u.n} ${u.title}`;
+  $("rSub").textContent=`${partName}, ${MODE_NAME[st.mode]}`;
+  const d=new Date();
+  $("rWho").innerHTML=`${d.getFullYear()}.${d.getMonth()+1}.${d.getDate()} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+  $("rScore").textContent=right;$("rOf").textContent=`/ ${total}`;$("rPct").textContent=`${pct}점`;
+  $("rMsg").textContent=pct===100?"모두 맞혔어요. 완벽해요!":pct>=90?"아주 잘했어요. 틀린 단어만 한 번 더 보면 끝!":pct>=70?"좋아요. 틀린 단어를 다시 연습해 봐요.":"틀린 단어 위주로 다시 연습해 봐요.";
+  const wrong=st.results.filter(r=>!r.ok);
+  if(!wrong.length)$("rWrong").innerHTML=`<p class="perfect">틀린 단어가 없어요.</p>`;
+  else $("rWrong").innerHTML=`<p class="rtitle">틀린 단어 ${wrong.length}개</p><div class="tablewrap"><table class="rtable"><thead><tr><th>Part</th><th>단어</th><th>뜻</th><th>내 답</th></tr></thead><tbody>${wrong.map(r=>`<tr><td>${r.it.part}-${String(r.it.no).padStart(2,"0")}</td><td class="e">${esc(r.it.en)}</td><td>${esc(r.it.ko)}</td><td class="mine">${esc(r.mine)}</td></tr>`).join("")}</tbody></table></div>`;
+  $("retryWrong").hidden=!wrong.length;
+  if(total===st.lastPool.length||total>=20){const key="vt-best-"+u.n,prev=parseInt(store.get(key)||"0",10);if(pct>prev)store.set(key,pct+"점");}
+  const sec=Math.round((Date.now()-st.t0)/1000);
+  st.lastEntry=st.isRetry?null:{unit:u.n,right,total,pct,part:st.part,mode:st.mode,sec,at:Date.now()};
+  $("rRank").innerHTML="";$("regBtn").disabled=false;
+  $("regBox").hidden=st.isRetry;
+  $("regMsg").className="regmsg";$("regMsg").textContent=st.isRetry?"틀린 단어만 다시 본 시험은 순위에 올라가지 않아요.":"";
+  show("result");
+}
+$("retryWrong").addEventListener("click",()=>startQuiz(shuffle(st.results.filter(r=>!r.ok).map(r=>r.it)),true));
+$("retryAll").addEventListener("click",()=>{let items=shuffle(st.lastPool);if(st.count!=="all")items=items.slice(0,+st.count);startQuiz(items);});
+renderHome();
+})();
+</script>
+</body>
+</html>
